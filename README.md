@@ -1,1 +1,1 @@
-# ASP.Net-Core-API-With-FluentValidation
+"This repository implements an ASP.NET Core API with Fluent Validation for a Coffee Shop Management System. We leverage stored procedures for database operations, following the same approach used in our previous repository, 'ASP.NET Core CRUD Operation.' This API demonstrates best practices in structuring APIs, validation, and integrating stored procedures for efficient and secure database interactions."
