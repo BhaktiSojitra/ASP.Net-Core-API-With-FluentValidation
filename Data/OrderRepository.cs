@@ -104,7 +104,6 @@ namespace API_DEMO.Data
                 conn.Open();
 
                 cmd.Parameters.AddWithValue("@OrderNumber", orderModel.OrderNumber);
-                cmd.Parameters.AddWithValue("@OrderDate", orderModel.OrderDate);
                 cmd.Parameters.AddWithValue("@CustomerID", orderModel.CustomerID);
                 cmd.Parameters.AddWithValue("@PaymentMode", orderModel.PaymentMode);
                 cmd.Parameters.AddWithValue("@TotalAmount", orderModel.TotalAmount);
@@ -129,7 +128,6 @@ namespace API_DEMO.Data
                 conn.Open();
 
                 cmd.Parameters.AddWithValue("@OrderID", orderModel.OrderID);
-                cmd.Parameters.AddWithValue("@OrderDate", orderModel.OrderDate);
                 cmd.Parameters.AddWithValue("@PaymentMode", orderModel.PaymentMode);
                 cmd.Parameters.AddWithValue("@TotalAmount", orderModel.TotalAmount);
                 cmd.Parameters.AddWithValue("@ShippingAddress", orderModel.ShippingAddress);
