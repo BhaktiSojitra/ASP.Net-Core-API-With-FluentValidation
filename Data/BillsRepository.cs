@@ -104,7 +104,6 @@ namespace API_DEMO.Data
                 conn.Open();
 
                 cmd.Parameters.AddWithValue("@BillNumber", billsModel.BillNumber);
-                cmd.Parameters.AddWithValue("@BillDate", billsModel.BillDate);
                 cmd.Parameters.AddWithValue("@OrderID", billsModel.OrderID);
                 cmd.Parameters.AddWithValue("@TotalAmount", billsModel.TotalAmount);
                 cmd.Parameters.AddWithValue("@Discount", billsModel.Discount);
@@ -130,7 +129,6 @@ namespace API_DEMO.Data
 
                 cmd.Parameters.AddWithValue("@BillID", billsModel.BillID);
                 cmd.Parameters.AddWithValue("@BillNumber", billsModel.BillNumber);
-                cmd.Parameters.AddWithValue("@BillDate", billsModel.BillDate);
                 cmd.Parameters.AddWithValue("@TotalAmount", billsModel.TotalAmount);
                 cmd.Parameters.AddWithValue("@Discount", billsModel.Discount);
                 cmd.Parameters.AddWithValue("@NetAmount", billsModel.NetAmount);
