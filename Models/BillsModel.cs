@@ -3,7 +3,7 @@ namespace API_DEMO.Models
 {
     public class BillsModel
     {
-        public int BillID { get; set; }
+        public int? BillID { get; set; }
         public string BillNumber { get; set; }
         public DateTime BillDate { get; set; }
         public int OrderID { get; set; }
