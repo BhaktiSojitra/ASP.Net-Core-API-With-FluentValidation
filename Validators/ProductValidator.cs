@@ -7,17 +7,6 @@ namespace API_DEMO.Validators
     {
         public ProductValidator()
         {
-            foreach (var property in typeof(ProductModel).GetProperties())
-            {
-                if (property.PropertyType == typeof(string))
-                {
-                    var propertyName = property.Name;
-                    RuleFor(x => property.GetValue(x) as string)
-                        .Must(value => value != "string")
-                        .WithMessage($"{propertyName} cannot have the value 'string'.");
-                }
-            }
-            
             RuleFor(model => model.ProductName)
                 .NotNull().NotEmpty().WithMessage("Product name is required.")
                 .Matches("^[a-zA-Z ]*$").WithMessage("Product Name should only contain letters.");
