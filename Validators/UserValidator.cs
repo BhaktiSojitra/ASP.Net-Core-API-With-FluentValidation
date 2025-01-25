@@ -7,6 +7,17 @@ namespace API_DEMO.Validators
     {
         public UserValidator() 
         {
+            foreach (var property in typeof(UserModel).GetProperties())
+            {
+                if (property.PropertyType == typeof(string))
+                {
+                    var propertyName = property.Name;
+                    RuleFor(x => property.GetValue(x) as string)
+                        .Must(value => value != "string")
+                        .WithMessage($"{propertyName} cannot have the value 'string'.");
+                }
+            }
+
             RuleFor(model => model.UserName)
                 .NotNull().NotEmpty().WithMessage("UserName name is required.")
                 .MinimumLength(10).WithMessage("UserName must be at least 10 characters long.")
