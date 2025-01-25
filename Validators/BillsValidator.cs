@@ -7,6 +7,17 @@ namespace API_DEMO.Validators
     {
         public BillsValidator() 
         {
+            foreach (var property in typeof(BillsModel).GetProperties())
+            {
+                if (property.PropertyType == typeof(string))
+                {
+                    var propertyName = property.Name;
+                    RuleFor(x => property.GetValue(x) as string)
+                        .Must(value => value != "string")
+                        .WithMessage($"{propertyName} cannot have the value 'string'.");
+                }
+            }
+            
             RuleFor(model => model.BillNumber)
                 .NotNull().NotEmpty().WithMessage("Bill number is required.")
                 .Matches("^(?=.*[a-zA-Z])(?=.*\\d)[a-zA-Z0-9]*$").WithMessage("Bill number must contain at least one letter and one number, and only alphanumeric characters are allowed.")
