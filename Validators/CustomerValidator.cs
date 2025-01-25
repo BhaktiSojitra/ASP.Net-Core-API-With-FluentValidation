@@ -7,17 +7,6 @@ namespace API_DEMO.Validators
     {
         public CustomerValidator() 
         {
-            foreach (var property in typeof(CustomerModel).GetProperties())
-            {
-                if (property.PropertyType == typeof(string))
-                {
-                    var propertyName = property.Name;
-                    RuleFor(x => property.GetValue(x) as string)
-                        .Must(value => value != "string")
-                        .WithMessage($"{propertyName} cannot have the value 'string'.");
-                }
-            }
-            
             RuleFor(model => model.CustomerName)
                 .NotNull().NotEmpty().WithMessage("Customer name is required.")
                 .Matches("^[A-Za-z]+$").WithMessage("Customer name must contain only letters.");
