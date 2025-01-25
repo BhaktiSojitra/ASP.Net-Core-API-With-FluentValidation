@@ -7,6 +7,17 @@ namespace API_DEMO.Validators
     {
         public OrderValidator() 
         {
+            foreach (var property in typeof(OrderModel).GetProperties())
+            {
+                if (property.PropertyType == typeof(string))
+                {
+                    var propertyName = property.Name;
+                    RuleFor(x => property.GetValue(x) as string)
+                        .Must(value => value != "string")
+                        .WithMessage($"{propertyName} cannot have the value 'string'.");
+                }
+            }
+            
             RuleFor(model => model.OrderNumber)
                 .GreaterThan(0).WithMessage("Order number greater than 0 and must be a positive integer.");
 
